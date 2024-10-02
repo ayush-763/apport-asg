@@ -44,6 +44,7 @@
   
   .column-heading .buttons{
     cursor:pointer;
+      padding-right: 20px;
   }
 
   .kanban-column h2 {
