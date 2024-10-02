@@ -11,6 +11,8 @@ import completedImg from "./Assets/Done.svg";
 import inProgressImg from "./Assets/in-progress.svg";
 import toDoImg from "./Assets/To-do.svg";
 import cancelledImg from "./Assets/Cancelled.svg";
+import addBtn from "./Assets/add.svg";
+import menuBtn from "./Assets/3 dot menu.svg";
 import "./Test.css";
 
 function Test() {
@@ -132,16 +134,22 @@ function Test() {
       <div className="kanban-board">
         {sortedTickets.map(([groupKey, groupTickets]) => (
           <div key={groupKey} className="kanban-column">
-            <h2>
-              {getIconForGroup(groupKey) && (
-                <img
-                  src={getIconForGroup(groupKey)}
-                  alt={`${groupKey} icon`}
-                  style={{ marginRight: "10px" }}
-                />
-              )}
-              {groupKey}
-            </h2>
+            <div className="column-heading">
+              <h2>
+                {getIconForGroup(groupKey) && (
+                  <img
+                    src={getIconForGroup(groupKey)}
+                    alt={`${groupKey} icon`}
+                    style={{ marginRight: "10px" }}
+                  />
+                )}
+                {groupKey}
+              </h2>
+              <div className="buttons">
+                <img src={addBtn} alt="add" />
+                <img src={menuBtn} alt="menu" />
+              </div>
+            </div>
             {groupTickets.length > 0 ? (
               groupTickets.map((ticket) => (
                 <Card
